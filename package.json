@@ -23,6 +23,7 @@
     "react-native-image-blur-loading": "^1.1.6",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
+    "react-native-simple-animations": "^0.3.0",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {

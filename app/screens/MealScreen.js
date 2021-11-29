@@ -10,9 +10,9 @@ import {
 	ImageBackground,
 	ScrollView,
 	TouchableOpacity,
+	Animated,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import { SimpleAnimation } from "react-native-simple-animations";
 import { useScrollToTop } from "@react-navigation/native";
 import axios from "axios";
 
@@ -41,11 +41,6 @@ function RandomScreen({ route, navigation }) {
 	const [update, onUpdate] = React.useState(true);
 	const [savedArray, onSavedArray] = React.useState("[]");
 	React.useEffect(() => {
-		AsyncStorage.getItem("bookmarks").then((res) => {
-			if (res !== null && res !== undefined) {
-				onSavedArray(res);
-			}
-		});
 		axios.request(url).then(function (response) {
 			onChangeMeal(response.data.meals[0]["strMeal"]);
 			var ingredients = "";
@@ -68,10 +63,6 @@ function RandomScreen({ route, navigation }) {
 			onChangeImgUrl(response.data.meals[0]["strMealThumb"]);
 		});
 	}, [update]);
-	React.useEffect(() => {
-		AsyncStorage.setItem("bookmarks", savedArray);
-		console.log(AsyncStorage.getItem("bookmarks"));
-	}, [savedArray]);
 	return (
 		<SafeAreaView style={styles.container}>
 			<Image source={{ uri: imgUrl }} style={styles.background} />
@@ -97,28 +88,6 @@ function RandomScreen({ route, navigation }) {
 					<AppButton
 						text="⟲"
 						fun={() => onUpdate(!update)}
-						style={buttonStyle}
-					/>
-
-					<Text>{padding}</Text>
-				</If>
-				<If
-					condition={
-						url.split("/")[url.split("/").length - 1] !=
-						"random.php"
-					}
-				>
-					<Text>{padding}</Text>
-					<AppButton
-						text="♡"
-						fun={() =>
-							onSavedArray(
-								JSON.stringify([
-									...JSON.parse(savedArray),
-									url.split("=")[url.split("=").length - 1],
-								])
-							)
-						}
 						style={buttonStyle}
 					/>
 

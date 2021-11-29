@@ -7,7 +7,6 @@ import OpenScreen from "./app/screens/OpenScreen";
 import MealScreen from "./app/screens/MealScreen";
 import ChooseScreen from "./app/screens/ChooseScreen";
 import CatFoodScreen from "./app/screens/CatFoodScreen";
-import BookmarkScreen from "./app/screens/BookmarkScreen";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -23,7 +22,6 @@ export default function App() {
 				<Stack.Screen name="meal" component={MealScreen} />
 				<Stack.Screen name="choose" component={ChooseScreen} />
 				<Stack.Screen name="catfood" component={CatFoodScreen} />
-				<Stack.Screen name="bookmark" component={BookmarkScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

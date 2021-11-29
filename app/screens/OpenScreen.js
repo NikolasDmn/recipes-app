@@ -39,11 +39,6 @@ function OpenScreen({ navigation }) {
 					fun={() => navigation.navigate("choose")}
 					style={ingrButtonStyle}
 				/>
-				<AppButton
-					text="Bookmarked Recipes"
-					fun={() => navigation.navigate("bookmark")}
-					style={randButtonStyle}
-				/>
 			</ImageBackground>
 		</SafeAreaView>
 	);

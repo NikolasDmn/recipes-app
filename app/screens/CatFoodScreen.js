@@ -121,7 +121,7 @@ const buttonStyle = StyleSheet.create({
 		textAlign: "center",
 		alignSelf: "center",
 		paddingHorizontal: 20,
-		borderRadius: 5,
+		borderRadius: 15,
 		textTransform: "uppercase",
 		fontWeight: "bold",
 		color: "#fff",
